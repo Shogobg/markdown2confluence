@@ -15,7 +15,7 @@ This tool converts Markdown to Confluence markup
 ## Installation
 
 ```sh
-npm i markdown2confluence -g
+npm i @shogobg/markdown2confluence -g
 ```
 
 ## Usage

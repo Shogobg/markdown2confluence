@@ -1,6 +1,6 @@
 {
   "name": "@shogobg/markdown2confluence",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Convert Markdown to Confluence markup",
   "main": "index.js",
   "scripts": {

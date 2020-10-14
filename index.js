@@ -360,7 +360,7 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
 		}
 
 		param = qs.stringify(param, '|', '=')
-		return `{code${param}}\n${text}\n{code}\n\n`;
+		return `{code:${param}}\n${text}\n{code}\n\n`;
 
 	}
 })

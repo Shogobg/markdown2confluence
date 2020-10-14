@@ -45,7 +45,7 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
      * @return {string}
      */
 	, html: function(text) {
-		return html.replace(/<([\w0-9]+)[\s\w="-_]*>([\w\s.!?\\-]*)<\/\1>/gi, '$1. $2')
+		return text.replace(/<([\w0-9]+)[\s\w="-_]*>([\w\s.!?\\-]*)<\/\1>/gi, '$1. $2')
 	}
 	/**
      * Headings 1 through 6.

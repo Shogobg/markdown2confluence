@@ -1,5 +1,5 @@
 {
-  "name": "markdown2confluence",
+  "name": "@shogobg/markdown2confluence",
   "version": "0.0.1",
   "description": "Convert Markdown to Confluence markup",
   "main": "index.js",
@@ -23,7 +23,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/Shogobg/markdown2confluence.git"
+    "url": "git+https://github.com/Shogobg/markdown2confluence.git"
   },
   "keywords": [
     "markdown",
@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/Shogobg/markdown2confluence/issues"
   },
-  "homepage": "https://shogo.eu/"
+  "homepage": "https://shogo.eu/",
+  "directories": {
+    "test": "tests"
+  }
 }

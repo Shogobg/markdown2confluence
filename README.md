@@ -9,7 +9,7 @@ This tool converts Markdown to Confluence markup
 [npm-url]: https://www.npmjs.com/package/@shogobg/markdown2confluence
 [downloads-image]: http://img.shields.io/npm/dm/@shogobg/markdown2confluence.svg?style=flat-square
 [downloads-url]: https://www.npmjs.com/package/@shogobg/markdown2confluence
-[david-image]: http://img.shields.io/david/@shogobg/markdown2confluence.svg?style=flat-square
+[david-image]: http://img.shields.io/david/Shogobg/markdown2confluence.svg?style=flat-square
 [david-url]: https://david-dm.org/Shogobg/markdown2confluence
 
 ## Installation

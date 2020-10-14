@@ -6,15 +6,11 @@
   "scripts": {
     "test": "node test.js",
     "build": "npm run build-html && npm run build-js",
-    "build-html": "jade -p node_modules/jade-gist/. < browser/index.jade > browser/index.html",
-    "build-js": "webpack browser/app.js --output-filename=browser/bundle.js",
-    "readme": "pretty-readme > readme.md"
+    "build-js": "webpack browser/app.js --output-filename=browser/bundle.js"
   },
   "author": "Milen Georgiev <Shogo>",
   "license": "ISC",
   "dependencies": {
-    "jade": "^1.11.0",
-    "jade-gist": "^1.0.5",
     "marked": "^1.2.0",
     "min-qs": "^1.3.0",
     "min-util": "^3.6.1",

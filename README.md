@@ -5,12 +5,12 @@ This tool converts Markdown to Confluence markup
 [![Downloads][downloads-image]][downloads-url]
 [![Dependency Status][david-image]][david-url]
 
-[npm-image]: https://img.shields.io/npm/v/markdown2confluence.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/markdown2confluence
-[downloads-image]: http://img.shields.io/npm/dm/markdown2confluence.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/markdown2confluence
-[david-image]: http://img.shields.io/david/chunpu/markdown2confluence.svg?style=flat-square
-[david-url]: https://david-dm.org/chunpu/markdown2confluence
+[npm-image]: https://img.shields.io/npm/v/@shogobg/markdown2confluence.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@shogobg/markdown2confluence
+[downloads-image]: http://img.shields.io/npm/dm/@shogobg/markdown2confluence.svg?style=flat-square
+[downloads-url]: https://www.npmjs.com/package/@shogobg/markdown2confluence
+[david-image]: http://img.shields.io/david/@shogobg/markdown2confluence.svg?style=flat-square
+[david-url]: https://david-dm.org/Shogobg/markdown2confluence
 
 ## Installation
 
@@ -34,9 +34,9 @@ markdown2confluence <path/to/markdown.md> <path/to/output.txt>
 
 [![License][license-image]][license-url]
 
-[travis-image]: https://img.shields.io/travis/chunpu/markdown2confluence.svg?style=flat-square
-[travis-url]: https://travis-ci.org/chunpu/markdown2confluence
-[license-image]: http://img.shields.io/npm/l/markdown2confluence.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/@shogobg/markdown2confluence.svg?style=flat-square
+[travis-url]: https://travis-ci.org/Shogobg/markdown2confluence
+[license-image]: http://img.shields.io/npm/l/@shogobg/markdown2confluence.svg?style=flat-square
 [license-url]: #
 
 # About

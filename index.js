@@ -6,14 +6,11 @@ var qs = require('min-qs')
 // https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup
 // http://blogs.atlassian.com/2011/11/why-we-removed-wiki-markup-editor-in-confluence-4/
 
-function Renderer() {}
-
-var rawRenderer = marked.Renderer
 
 // https://confluence.atlassian.com/doc/code-block-macro-139390.html
 var defaultLanguageMap = require('./defaultLanguageMap.json')
 
-_.extend(Renderer.prototype, rawRenderer.prototype, {
+const renderer = {
 	/**
      * Simple text.
      *
@@ -45,7 +42,27 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
      * @return {string}
      */
 	, html: function(text) {
-		return text.replace(/<([\w0-9]+)[\s\w="-_]*>([\w\s.!?\\-]*)<\/\1>/gi, '$1. $2')
+          const regex = /<([\w]+)\s*[\w=]+"([\/:\s\w=\-@\.]*)">([\/:\s\w.!?\\<>\-]*)(<\/\1>)?/gi
+
+          // We need special handling for anchors
+          text = text.replace(regex, (match, tag, link, content) => {
+               if(tag === 'a'){
+                    return `[${link}|`
+               }
+
+               return `${tag}. ${content}`
+          });
+
+          // Closing anchor tag </a> otherwise remove the closing tag
+          text = text.replace(/<\/([\s\w]+)>/gi, (match, tag) => {
+               if(tag === 'a'){
+                    return `]`
+               }
+
+               return '';
+          });
+
+		return text
 	}
 	/**
      * Headings 1 through 6.
@@ -237,12 +254,13 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
      * @return {string}
      */
 	, list: function(text, ordered) {
-		text = text.trim();
-
-        if (ordered) {
-            text = text.replace(/^\*/gm, "#");
-        }
-
+          
+          text = text.trim();
+          
+          if (ordered) {
+               text = text.replace(/^\*/gm, "#");
+          }
+          
         return `\r${text}\n\n`;
 	}
 	/**
@@ -257,7 +275,7 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
         // text. Turn that "\r" into "\n" but trim out other whitespace
         // from the list.
         text = text.replace(/\s*$/, "").replace(/\r/g, "\n");
-
+        
         // Convert newlines followed by a # or a * into sub-list items
         text = text.replace(/\n([*#])/g, "\n*$1");
 
@@ -361,14 +379,12 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
 
 		param = qs.stringify(param, '|', '=')
 		return `{code:${param}}\n${text}\n{code}\n\n`;
-
 	}
-})
-
-var renderer = new Renderer()
+};
 
 markdown2confluence = (markdown, options) => {
-	return marked(markdown, {renderer: renderer})
+     marked.use({renderer})
+	return marked(markdown)
 };
 
 module.exports = markdown2confluence;

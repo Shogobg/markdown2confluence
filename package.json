@@ -1,10 +1,10 @@
 {
   "name": "@shogobg/markdown2confluence",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Convert Markdown to Confluence markup",
   "main": "index.js",
   "scripts": {
-    "test": "node ./tests/test.js",
+    "test": "jest",
     "build": "npm run build-html && npm run build-js",
     "build-js": "webpack browser/app.js --output-filename=browser/bundle.js"
   },
@@ -13,14 +13,25 @@
   "dependencies": {
     "marked": "^1.2.0",
     "min-qs": "^1.3.0",
-    "min-util": "^3.6.1",
     "raw-loader": "^4.0.2",
     "webpack": "^5.1.0"
   },
   "bin": {
     "markdown2confluence": "bin/markdown2confluence.js"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.0",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.12.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.5.3",
+    "prettier": "^2.1.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shogobg/markdown2confluence.git"
@@ -37,5 +48,11 @@
   "homepage": "https://shogo.eu/",
   "directories": {
     "test": "tests"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

@@ -13,7 +13,7 @@ This tool converts [Markdown] to [Confluence Wiki Markup].
 
 Using [Markdown] is fast becoming a standard for open-source projects and their documentation. There are a few variants, such as [GitHub Flavored Markdown], which add additional features.
 
-Atlassian's Confluence has a different way of writing documentation, according to their [Confluence Wiki Markup] and [later pages](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) and [references](https://roundcorner.atlassian.net/secure/WikiRendererHelpAction.jspa?section=all).
+Atlassian's Confluence has a different way of writing documentation, according to their [Confluence Wiki Markup] and [later pages][confluence-wiki-markup] and [references][wiki-render-help-action].
 
 This project contains a library and a command-line tool that bridges the gap and converts from Markdown to Confluence.
 
@@ -103,3 +103,7 @@ Shamelessly copied improvements from [fdian](https://github.com/connected-world-
 [travis-url]: https://travis-ci.org/Shogobg/markdown2confluence
 [license-image]: http://img.shields.io/npm/l/@shogobg/markdown2confluence.svg?style=flat-square
 [license-url]: #
+[wiki-render-help-action]: https://roundcorner.atlassian.net/secure/WikiRendererHelpAction.jspa?section=all
+[confluence-wiki-markup]: https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup
+[removed-wiki-markup-editor]: http://blogs.atlassian.com/2011/11/why-we-removed-wiki-markup-editor-in-confluence-4/
+[code-block-macro]: https://confluence.atlassian.com/doc/code-block-macro-139390.html

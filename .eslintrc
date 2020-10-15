@@ -1,0 +1,41 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "classes": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": ["prettier", "import"],
+  "extends": ["prettier"],
+  "rules": {
+    "max-len": ["error", {"ignoreComments": true}],
+    "prettier/prettier": [
+      "error",
+      {
+        "allowParens": "avoid",
+        "singleQuote": true,
+        "trailingComma": "all",
+        "bracketSpacing": false
+      }
+    ],
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["react"]
+      }
+    ],
+    "strict": 0,
+    "no-restricted-syntax": 0,
+    "no-use-before-define": 0,
+    "one-var": 0,
+    "import/prefer-default-export": 0,
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0
+  }
+}

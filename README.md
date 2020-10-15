@@ -99,7 +99,7 @@ Shamelessly copied improvements from [fdian](https://github.com/connected-world-
 [devdependencies-link]: https://david-dm.org/Shogobg/markdown2confluence#info=devDependencies
 [codecov-badge]: https://img.shields.io/codecov/c/github/Shogobg/markdown2confluence/master.svg
 [codecov-link]: https://codecov.io/github/Shogobg/markdown2confluence?branch=master
-[travis-image]: https://img.shields.io/travis/@shogobg/markdown2confluence.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/shogobg/markdown2confluence.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Shogobg/markdown2confluence
 [license-image]: http://img.shields.io/npm/l/@shogobg/markdown2confluence.svg?style=flat-square
 [license-url]: #

@@ -376,6 +376,7 @@ const renderer = {
 
 const markdown2confluence = (markdown, options) => {
   marked.use({renderer});
+
   return marked(markdown);
 };
 

@@ -1,1 +1,5 @@
-line1\n\n\n\nline2
+line1
+
+
+
+line2

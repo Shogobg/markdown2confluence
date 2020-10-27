@@ -17,9 +17,7 @@ fs.readFile(path.resolve(process.cwd(), filename), (err, buffer) => {
   commentEnd = commentEnd > 0 ? (commentEnd += 3) : 0;
 
   // Generate the confluence wiki markup
-  const confluenceMarkup = md2conflu(
-    buffer.slice(commentEnd, buffer.length) + '',
-  );
+  const confluenceMarkup = md2conflu(buffer.slice(commentEnd, buffer.length));
 
   if (outputFileName) {
     fs.writeFileSync(

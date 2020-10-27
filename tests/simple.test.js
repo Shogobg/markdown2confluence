@@ -1,18 +1,13 @@
 const convert = require('..');
 const getTestStrings = require('./utils/testStringLoader');
 
-const pairs = [
-  ['# h1', 'h1. h1\n\n'],
-  ['head1\n===', 'h1. head1\n\n'],
-  ['###  h3', 'h3. h3\n\n'],
-  // ['- item\n  - nested', '\r* item\n** nested\n\n'],
-];
-
 describe('Simple tests', () => {
-  pairs.forEach((arr, i) => {
-    it(`should test that converting '${arr[0]}' results in '${arr[1]}'`, () => {
-      expect(convert(arr[0])).toBe(arr[1]);
-    });
+  it('Works with strings', () => {
+    expect(convert('abc')).toBe('abc\n\n');
+  });
+
+  it('Works with Buffer', () => {
+    expect(convert(Buffer.from('abc', 'utf8'))).toBe('abc\n\n');
   });
 
   it('Converts strong and bold text', () => {
@@ -45,8 +40,20 @@ describe('Simple tests', () => {
     expect(convert(source)).toStrictEqual(expect.stringContaining(target));
   });
 
-  it('Converts HTML tags to "tag." style', () => {
+  it('Converts italics', () => {
     const {source, target} = getTestStrings('italics');
+
+    expect(convert(source)).toStrictEqual(expect.stringContaining(target));
+  });
+
+  it('Converts strikethrough', () => {
+    const {source, target} = getTestStrings('strikethrough');
+
+    expect(convert(source)).toStrictEqual(expect.stringContaining(target));
+  });
+
+  it('Different types of headings', () => {
+    const {source, target} = getTestStrings('headings');
 
     expect(convert(source)).toStrictEqual(expect.stringContaining(target));
   });

@@ -11,4 +11,9 @@ describe('Code tests', () => {
     const {source, target} = getTestStrings('code-indentation');
     expect(convert(source)).toStrictEqual(expect.stringContaining(target));
   });
+
+  it('Codespan brackets', () => {
+    const {source, target} = getTestStrings('codespan-brackets');
+    expect(convert(source)).toStrictEqual(expect.stringContaining(target));
+  });
 });

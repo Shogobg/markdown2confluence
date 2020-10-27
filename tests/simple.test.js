@@ -57,4 +57,10 @@ describe('Simple tests', () => {
 
     expect(convert(source)).toStrictEqual(expect.stringContaining(target));
   });
+
+  it('Horizontal rule', () => {
+    const {source, target} = getTestStrings('hr');
+
+    expect(convert(source)).toStrictEqual(expect.stringContaining(target));
+  });
 });

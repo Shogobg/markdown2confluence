@@ -35,7 +35,7 @@ const renderer = {
    * @return {string}
    */
   html: function (text) {
-    const regex = /<([\w]+)\s*[\w=]+"([\/:\s\w=\-@\.]*)">([\/:\s\w.!?\\<>\-]*)(<\/\1>)?/gi;
+    const regex = /<([\w]+)\s*[\w=]*"?([\/:\s\w=\-@\.\&\?\%]*)"?>([\/:\s\w.!?\\<>\-]*)(<\/\1>)?/gi;
 
     // We need special handling for anchors
     text = text.replace(regex, (match, tag, link, content) => {

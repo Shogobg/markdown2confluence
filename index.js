@@ -1,5 +1,5 @@
 const marked = require('marked');
-const qs = require('min-qs');
+const qs = require('querystring');
 
 const defaultLanguageMap = require('./defaultLanguageMap.json');
 

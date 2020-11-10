@@ -176,9 +176,9 @@ const renderer = {
     return `{quote}\n${text.trim()}\n{quote}\n\n`;
   },
   /**
-   * A line break. Supposedly if you have a line with 2 or more spaces
-   * followed by a line that doesn't have whitespace, then it turns into
-   * this element. I'm failing to reproduce that scenario.
+   * A line break.
+   * This is triggered by having a backslash at the end of a row
+   * Some text\
    *
    * @return {string}
    */

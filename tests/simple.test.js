@@ -63,4 +63,10 @@ describe('Simple tests', () => {
 
     expect(convert(source)).toStrictEqual(expect.stringContaining(target));
   });
+
+  it('Converts br to newline', () => {
+    const {source, target} = getTestStrings('br');
+
+    expect(convert(source)).toStrictEqual(expect.stringContaining(target));
+  });
 });

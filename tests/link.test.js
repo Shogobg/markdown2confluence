@@ -14,13 +14,15 @@ describe('Link tests', () => {
     expect(convert(source)).toStrictEqual(expect.stringContaining(target));
   });
 
-  it('allows href rewriting', () => {
+  it('Change anchor URL renderer', () => {
     expect(
       convert('[text](url/)', {
-        linkRewrite: (href) => {
-          return `http://example.com/${href}`;
+        renderer: {
+          link: (href) => {
+            return `http://example.com/${href}`;
+          },
         },
       }),
-    ).toBe('[text|http://example.com/url/]');
+    ).toBe('http://example.com/url/\n\n');
   });
 });

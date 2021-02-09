@@ -1,9 +1,28 @@
+const {options} = require('marked');
 const marked = require('marked');
 const qs = require('querystring');
 
 const defaultLanguageMap = require('./defaultLanguageMap.json');
 
-const renderer = {
+const codeBlockParams = {
+  options: {
+    title: 'none',
+    language: 'none',
+    borderStyle: 'solid',
+    theme: 'RDark', // dark is good
+    linenumbers: true,
+    collapse: true,
+  },
+
+  get(lang) {
+    const codeOptions = this.options;
+    codeOptions.language = lang;
+
+    return codeOptions;
+  },
+};
+
+const defaultRenderer = {
   /**
    * Simple text.
    *
@@ -360,22 +379,42 @@ const renderer = {
   code: function (text, lang) {
     lang = defaultLanguageMap[(lang ?? '').toLowerCase()];
 
-    var param = {
-      title: lang,
-      language: lang,
-      borderStyle: 'solid',
-      theme: 'RDark', // dark is good
-      linenumbers: true,
-      collapse: true,
-    };
-
-    param = qs.stringify(param, '|', '=');
+    const param = qs.stringify(codeBlockParams.get(lang), '|', '=');
     return `{code:${param}}\n${text}\n{code}\n\n`;
   },
 };
 
 const markdown2confluence = (markdown, options) => {
-  marked.use({renderer});
+  if (options) {
+    const {codeBlock, renderer} = options;
+
+    if (codeBlock && codeBlock.languageMap) {
+      Object.entries(codeBlock.languageMap).forEach((option) => {
+        defaultLanguageMap[option[0]] = option[1];
+      });
+    }
+
+    if (codeBlock && codeBlock.options) {
+      Object.entries(codeBlock.options).forEach((option) => {
+        if (
+          codeBlockParams.options[option[0]] &&
+          typeof option[1] !== 'function'
+        ) {
+          codeBlockParams.options[option[0]] = option[1];
+        }
+      });
+    }
+
+    if (renderer) {
+      Object.entries(renderer).forEach((option) => {
+        if (defaultRenderer[option[0]] && typeof option[1] === 'function') {
+          defaultRenderer[option[0]] = option[1];
+        }
+      });
+    }
+  }
+
+  marked.use({renderer: defaultRenderer});
 
   return marked(markdown.toString());
 };

@@ -1,1 +1,3 @@
-[text][ref]\n[ref]: <url/> (title)
+[text][ref]
+
+[ref]: <url/> (title)

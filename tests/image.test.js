@@ -14,13 +14,15 @@ describe('Image tests', () => {
     expect(convert(source)).toStrictEqual(expect.stringContaining(target));
   });
 
-  it('allows href rewriting', () => {
+  it('Change image URL renderer', () => {
     expect(
       convert('![alt text](image.png)', {
-        imageRewrite: (href) => {
-          return `http://example.com/${href}`;
+        renderer: {
+          image: (href) => {
+            return `http://example.com/${href}`;
+          },
         },
       }),
-    ).toBe('!http://example.com/image.png!');
+    ).toBe('http://example.com/image.png\n\n');
   });
 });

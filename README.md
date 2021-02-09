@@ -57,12 +57,62 @@ Or just edit your application `package.json` and add the following code to your 
 
 Now you write some JavaScript to load Markdown content and convert.
 
-    markdown2confluence = require("@shogobg/markdown2confluence");
-    markdown = fs.readFileSync("README.md");
-    confluence = markdown2confluence(markdown);
-    console.log(confluence);
+```javascript
+markdown2confluence = require('@shogobg/markdown2confluence');
+markdown = fs.readFileSync('README.md');
+confluence = markdown2confluence(markdown);
+console.log(confluence);
+```
 
 This uses the wonderful [marked](https://www.npmjs.com/package/marked) library to parse and reformat the Markdown text.
+
+## Custom options
+
+Since this tool uses [marked](https://www.npmjs.com/package/marked), there is a pre-defined renderer which we pass to [marked](https://www.npmjs.com/package/marked).
+If you want to replace any of the predefined functions or the renderer as a whole, you can do so by passing an options object to the tool.
+
+```javascript
+markdown2confluence = require('@shogobg/markdown2confluence');
+markdown = fs.readFileSync('README.md');
+confluence = markdown2confluence(markdown, {
+  renderer: {
+    link: href => {
+      return `http://example.com/${href}`;
+    },
+  },
+});
+console.log(confluence);
+```
+
+Additionally, the options objects takes custom arguments for the confluence code block options.
+
+```javascript
+markdown2confluence = require('@shogobg/markdown2confluence');
+markdown = fs.readFileSync('README.md');
+confluence = markdown2confluence(markdown, {
+  renderer: {
+    link: href => {
+      return `http://example.com/${href}`;
+    },
+  },
+  codeBlock: {
+    // Adds support for new language
+    languageMap: {
+      leet: '1337',
+    },
+    // Shows the supported options and their default values
+    options: {
+      title: 'none',
+      language: 'none',
+      borderStyle: 'solid',
+      theme: 'RDark', // dark is good
+      linenumbers: true,
+      collapse: true,
+    },
+  },
+});
+console.log(confluence);
+```
 
 ## Supported Markdown
 

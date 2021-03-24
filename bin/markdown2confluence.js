@@ -8,7 +8,7 @@ var filename = process.argv[2];
 const outputFileName = process.argv[3];
 
 if (!filename) {
-    filename = "/dev/stdin";
+  filename = '/dev/stdin';
 }
 
 fs.readFile(path.resolve(process.cwd(), filename), (err, buffer) => {

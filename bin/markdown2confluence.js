@@ -6,7 +6,10 @@ var assert = require('assert');
 
 var filename = process.argv[2];
 const outputFileName = process.argv[3];
-assert(filename, 'should have filename');
+
+if (!filename) {
+    filename = "/dev/stdin";
+}
 
 fs.readFile(path.resolve(process.cwd(), filename), (err, buffer) => {
   assert(!err, 'read file ' + filename + ' error!');
@@ -24,6 +27,8 @@ fs.readFile(path.resolve(process.cwd(), filename), (err, buffer) => {
       path.resolve(process.cwd(), outputFileName),
       confluenceMarkup,
     );
+  } else {
+    console.log(confluenceMarkup);
   }
 
   return confluenceMarkup;

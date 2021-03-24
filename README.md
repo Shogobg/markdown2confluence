@@ -29,17 +29,21 @@ npm i --save @shogobg/markdown2confluence
 
 ## Command-Line Use
 
-Use it to convert a markdown file.
-
-    markdown2confluence README.md
-
-Or pipe in a file.
-
-    cat README.md | markdown2confluence
+Read in a Markdown file and write Confluence format to another file:
 
 ```sh
 markdown2confluence <path/to/markdown.md> <path/to/output.txt>
 ```
+
+Or output to standard output:
+
+    markdown2confluence README.md
+
+Or pipe in a file and output to standard output:
+
+    cat README.md | markdown2confluence
+
+(Piping into markdown2confluence only works on platforms that support /dev/stdin, for example not Windows.)
 
 ## As library dependency
 

@@ -13,7 +13,7 @@
 
 > block quote
 
-[github link address](https://github.com/Shogobg/markdown2confluence/
+[github link address](https://github.com/Shogobg/markdown2confluence/)
 
 ```javascript
 var i = 1; // comment

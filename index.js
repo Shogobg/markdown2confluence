@@ -1,5 +1,4 @@
-const {options} = require('marked');
-const marked = require('marked');
+const {options, marked} = require('marked');
 const qs = require('querystring');
 
 const defaultLanguageMap = require('./defaultLanguageMap.json');
@@ -54,7 +53,8 @@ const defaultRenderer = {
    * @return {string}
    */
   html: function (text) {
-    const regex = /<([\w]+)\s*[\w=]*"?([\/:\s\w=\-@\.\&\?\%]*)"?>([\/:\s\w.!?\\<>\-]*)(<\/\1>)?/gi;
+    const regex =
+      /<([\w]+)\s*[\w=]*"?([\/:\s\w=\-@\.\&\?\%]*)"?>([\/:\s\w.!?\\<>\-]*)(<\/\1>)?/gi;
 
     // We need special handling for anchors
     text = text.replace(regex, (match, tag, link, content) => {
@@ -416,7 +416,7 @@ const markdown2confluence = (markdown, options) => {
 
   marked.use({renderer: defaultRenderer});
 
-  return marked(markdown.toString());
+  return marked.parse(markdown.toString());
 };
 
 module.exports = markdown2confluence;

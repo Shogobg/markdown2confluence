@@ -9,7 +9,7 @@
   "author": "Milen Georgiev <Shogo>",
   "license": "ISC",
   "dependencies": {
-    "marked": "^2.0.0"
+    "marked": "^4.0.0"
   },
   "engines": {
     "node": ">= 14.0.0"

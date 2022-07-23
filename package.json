@@ -1,6 +1,6 @@
 {
   "name": "@shogobg/markdown2confluence",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Convert Markdown to Confluence markup",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Milen Georgiev <Shogo>",
   "license": "ISC",
   "dependencies": {
-    "marked": "^4.0.0"
+    "marked": "^4.0.18"
   },
   "engines": {
     "node": ">= 14.0.0"

@@ -124,7 +124,7 @@ The aim of this library is to convert as much Markdown to Confluence Wiki Markup
 
 If it is possible to convert the Markdown to Confluence Wiki Markup (without resorting to HTML), then this library should be able to do it. If you find anything wrong, it is likely a bug and should be reported. I would need a sample of Markdown, the incorrect translation and the correct way to represent that in Confluence. Please file an issue with this information in order to help replicate and fix the issue.
 
-A good demonstration chunk of markdown is available in [demo.md](demo.md).
+A good demonstration chunk of markdown is available in [demo.md](./demo/demo.md).
 
 **What does not work?**
 

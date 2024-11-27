@@ -1,6 +1,6 @@
 {
   "name": "@shogobg/markdown2confluence",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Convert Markdown to Confluence markup",
   "main": "index.js",
   "scripts": {
@@ -9,10 +9,10 @@
   "author": "Milen Georgiev <Shogo>",
   "license": "ISC",
   "dependencies": {
-    "marked": "^4.0.18"
+    "marked": "^12.0.2"
   },
   "engines": {
-    "node": ">= 14.0.0"
+    "node": ">= 18.0.0"
   },
   "bin": {
     "markdown2confluence": "bin/markdown2confluence.js"
@@ -29,7 +29,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.6.2",
     "prettier": "^2.1.2",
-    "webpack": "^5.3.2"
+    "webpack": "^5.96.1"
   },
   "repository": {
     "type": "git",

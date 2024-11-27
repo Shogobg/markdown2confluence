@@ -4,7 +4,6 @@ This tool converts [Markdown] to [Confluence Wiki Markup].
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
-[![codecov.io][codecov-badge]][codecov-link]
 
 ## Overview
 
@@ -145,8 +144,6 @@ Shamelessly copied improvements from [fdian](https://github.com/connected-world-
 [npm-url]: https://www.npmjs.com/package/@shogobg/markdown2confluence
 [downloads-image]: http://img.shields.io/npm/dm/@shogobg/markdown2confluence.svg?style=flat-square
 [downloads-url]: https://www.npmjs.com/package/@shogobg/markdown2confluence
-[codecov-badge]: https://img.shields.io/codecov/c/github/Shogobg/markdown2confluence/master.svg
-[codecov-link]: https://codecov.io/github/Shogobg/markdown2confluence?branch=master
 [license-image]: http://img.shields.io/npm/l/@shogobg/markdown2confluence.svg?style=flat-square
 [license-url]: #
 [wiki-render-help-action]: https://roundcorner.atlassian.net/secure/WikiRendererHelpAction.jspa?section=all

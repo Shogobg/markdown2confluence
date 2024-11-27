@@ -4,7 +4,7 @@
   "description": "Convert Markdown to Confluence markup",
   "main": "index.js",
   "scripts": {
-    "test": "jest --ci --coverage && codecov"
+    "test": "jest --ci --coverage"
   },
   "author": "Milen Georgiev <Shogo>",
   "license": "ISC",

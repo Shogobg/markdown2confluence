@@ -1,6 +1,6 @@
 {
   "name": "@shogobg/markdown2confluence",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Convert Markdown to Confluence markup",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.6.2",
+    "jest": "^30.3.0",
     "prettier": "^2.1.2",
     "webpack": "^5.96.1"
   },

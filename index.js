@@ -164,13 +164,20 @@ const defaultRenderer = {
    * @return {string}
    */
   codespan: function (text) {
+    // Confluence interprets { and } as macro delimiters, even inside
+    // {{...}}, which causes "Unknown macro" errors. Escape them with a
+    // backslash so they render literally. Already-escaped braces are
+    // left untouched to avoid double escaping.
+    text = text.replace(/(?<!\\)\{/g, '\\{').replace(/(?<!\\)\}/g, '\\}');
+
     text = text.split(/(&[^;]*;)/).map((match, index) => {
       // These are the delimeters.
       if (index % 2) {
         return match;
       }
 
-      return match.replace(/[^a-zA-Z0-9 ]/g, (badchar) => {
+      // Keep the backslashes that escape curly braces intact.
+      return match.replace(/[^a-zA-Z0-9 \\{}]/g, (badchar) => {
         return `&#${badchar[0].charCodeAt(0)};`;
       });
     });

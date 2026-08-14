@@ -68,14 +68,25 @@ describe('Code tests', () => {
   //   // {code:language=none|collapse=true}\n1\n2\n3\n{code}
   // });
 
-  // // Codespan tests
-  // it('changes unsafe text so Confluence understands it', () => {
-  //   expect(convert('`~/file` and `~/folder` and `{braces}`')).toBe(
-  //     '{{&#126;&#47;file}} and {{&#126;&#47;folder}} and {{&#123;braces&#125;}}',
-  //   );
-  // });
-  // it('preserves entities that are already HTML encoded', () => {
-  //   expect(convert('`Fish&Chips`')).toBe('{{Fish&amp;Chips}}\n\n');
-  //   expect(convert('`> and <`')).toBe('{{&gt; and &lt;}}\n\n');
-  // });
+  // Codespan tests
+  it('changes unsafe text so Confluence understands it', () => {
+    expect(convert('`~/file` and `~/folder` and `{braces}`')).toBe(
+      '{{&#126;&#47;file}} and {{&#126;&#47;folder}} and {{\\{braces\\}}}\n\n',
+    );
+  });
+  it('escapes curly braces with backslashes to avoid macro expansion', () => {
+    expect(convert('`GET /management/systems/{systemId}/online-state`')).toBe(
+      '{{GET &#47;management&#47;systems&#47;\\{systemId\\}' +
+        '&#47;online&#45;state}}\n\n',
+    );
+  });
+  it('does not double-escape curly braces', () => {
+    expect(convert('`\\{alreadyEscaped\\}`')).toBe(
+      '{{\\{alreadyEscaped\\}}}\n\n',
+    );
+  });
+  it('preserves entities that are already HTML encoded', () => {
+    expect(convert('`Fish&Chips`')).toBe('{{Fish&amp;Chips}}\n\n');
+    expect(convert('`> and <`')).toBe('{{&gt; and &lt;}}\n\n');
+  });
 });
